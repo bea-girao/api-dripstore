@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 const categoryRouter = require('./infrastructure/services/category/router');
 const customerRouter = require('./infrastructure/services/customer/router');
@@ -8,7 +9,7 @@ const app = express();
 
 //definindo o tipo de dado que vai ficar saindo e chegando da API
 app.use(express.json()); 
-
+app.use(cors());
 //adicionando as rotas de category ao servidor
 app.use(categoryRouter);
 app.use(customerRouter);

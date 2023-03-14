@@ -37,3 +37,18 @@ VALUES
 -- Alterar a tabela de cliente --
 ALTER TABLE tb_customer 
     ADD COLUMN created_at datetime NOT NULL;
+
+CREATE TABLE tb_user (
+    id CHAR(36) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    token VARCHAR(255) NULL
+);
+
+INSERT INTO tb_user (id, name, email,password) VALUES (
+    '0fd8f6b9-2a00-4a4b-8f62-446d69c6bbc7',
+    'Usuario Teste',
+    'usuario@email.com',
+    '1q2w3e'
+);

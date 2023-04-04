@@ -8,20 +8,22 @@ const categoryRouter = require('./infrastructure/services/category/router');
 const customerRouter = require('./infrastructure/services/customer/router');
 const userRouter = require('./infrastructure/services/user/router');
 
+const bannerRouter = require('./infrastructure/services/banner/router');
+
 //aqui a gente inicia o express
 const app = express();
-
 
 //definindo o tipo de dado que vai ficar saindo e chegando da API
 app.use(cors());
 app.use(express.json()); 
 
-//adicionando as rotas de category ao servidor  
+//adicionando as rotas de category ao servidor
 app.use(categoryRouter);
 app.use(customerRouter);
 app.use(userRouter);
+app.use(bannerRouter);
 
-//porta do servidor da API
+//porta do servidor da API 
 const port = process.env.PORT; 
 
 //toda requisiçao vai passar por essa função

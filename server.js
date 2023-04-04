@@ -4,8 +4,6 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-//require('dotenv').config;
-
 const categoryRouter = require('./infrastructure/services/category/router');
 const customerRouter = require('./infrastructure/services/customer/router');
 const userRouter = require('./infrastructure/services/user/router');
@@ -13,17 +11,18 @@ const userRouter = require('./infrastructure/services/user/router');
 //aqui a gente inicia o express
 const app = express();
 
+
 //definindo o tipo de dado que vai ficar saindo e chegando da API
-app.use(express.json()); 
 app.use(cors());
-//adicionando as rotas de category ao servidor
+app.use(express.json()); 
+
+//adicionando as rotas de category ao servidor  
 app.use(categoryRouter);
 app.use(customerRouter);
 app.use(userRouter);
 
-
 //porta do servidor da API
-const port = process.env.PORT;
+const port = process.env.PORT; 
 
 //toda requisiçao vai passar por essa função
 function main() {
